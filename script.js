@@ -43,6 +43,8 @@ document.querySelectorAll("[data-object='block']").forEach((item) => {
         if (item.children[1].getAttribute("data-state") == "closed") {
             document.querySelectorAll("[data-object='block']").forEach((item) => {
                 item.classList.remove("bg-orange-100");
+                item.children[1].classList.remove("mt-4");
+                item.classList.remove("py-6");
                 if (item.querySelector("input") != null) {
                     item.querySelector("input").value = "";
                 }
@@ -51,10 +53,14 @@ document.querySelectorAll("[data-object='block']").forEach((item) => {
             })
             item.children[1].setAttribute("data-state", "open");
             item.classList.add("bg-orange-100");
+            item.classList.add("py-6");
+            item.children[1].classList.add("mt-4");
             switch_state(item, "remove", ["h-0", "w-0", "pb-0", "opacity-0", "pointer-events-none"]);
         } else {
             item.children[1].setAttribute("data-state", "closed");
             item.classList.remove("bg-orange-100");
+            item.classList.remove("py-6");
+            item.children[1].classList.remove("mt-4");
             switch_state(item, "add", ["h-0", "w-0", "pb-0", "opacity-0", "pointer-events-none"]);
         }
     })
